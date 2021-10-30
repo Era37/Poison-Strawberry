@@ -1,7 +1,10 @@
 % Int Variables
-var winID, instructions, font1, font2, backgroundID, backgroundImage, strawberryID, strawberryImage, raspberryID, raspberryImage, lastInteration:int
+var winID, instructions, font1, font2, backgroundID, backgroundImage, strawberryID, strawberryImage, raspberryID, raspberryImage, lastInteration, strawberriesTake:int
+var strawberriesLeft:int;
 % String Variables
-var name1, name2, viewInstructions, phrase:string
+var name1, name2, viewInstructions, phrase, playAgain, winner:string
+% Boolean Variables
+var restart:boolean
 
 font2 := Font.New("dancing script:18:bold")
 font1 := Font.New("dancing script:40:bold")
