@@ -4,6 +4,7 @@ function gameOver (nme : string) : boolean
 	winner := "Congradulations " + nme + " you won!"
 	Font.Draw (winner, 310, 335, font2, white)
 	Font.Draw ("Would you like to play again?",310,310,font2,white)
+	locate (15, 53)
 	get playAgain
 	if (Str.Lower(playAgain) = "y") then
 	    exit
@@ -37,6 +38,7 @@ loop
     Font.Draw ("Insert Player2's name", 340, 200, font2, white)
     locate (22, 55)
     get name2
+    % This gives me pain to read
     loop
 	loop
 	    drawBerries
@@ -65,7 +67,7 @@ loop
 	    end if
 	end loop
 	if (strawberriesLeft = 0) then
-	    restart := gameOver (name1)
+	    restart := gameOver (name2)
 	    if (restart = true) then
 		exit
 	    end if
