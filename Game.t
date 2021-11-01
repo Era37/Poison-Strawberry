@@ -2,7 +2,7 @@
 function gameOver (nme : string) : boolean
     loop
 	if (Str.Lower(name1) = "jessica") or (Str.Lower(name2) = "jessica") then
-	    Pic.Draw (transFlagID, 0, 0, picCopy)
+	    Pic.Draw (transFlagImage, 0, 0, picCopy)
 	    colour1 := black
 	else
 	    Pic.Draw (endGamePhoto, 0, 0, picCopy)
