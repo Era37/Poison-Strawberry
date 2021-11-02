@@ -10,7 +10,6 @@
 % next it will draw the strawberries on the screen and let the first player choose 1 or 2 strawberrys, then player 2.
 % changing turn until one player is left with the raspberry and the game ends.
 
-
 % Data Dictionary: 
 % winID - This variable represents
 % font1 - The variable that represents a title font
@@ -21,7 +20,7 @@
 % strawberryImage - The strawberry JPG for the game
 % raspberryImage - The raspberry JPG for the game
 % strawberriesTake - Represents the number of strawberries the user is taking
-% transFlagImage - The easter egg image
+% transFlagImage - The easter egg image mmlol
 % strawberriesLeft - The variable showing # of strawberries left
 % name1 - Variable with the first player's name
 % name2 - Variable with the second player's name
@@ -43,7 +42,7 @@ var restart:boolean
 % Playing the music
 process DoMusic
     loop
-	Music.PlayFile ("./Assets/aqua.mp3")
+        Music.PlayFile ("./Assets/aqua.mp3")
     end loop
 end DoMusic
     
@@ -64,6 +63,7 @@ strawberryImage := Pic.Scale(strawberryImage, 60, 60)
 raspberryImage := Pic.FileNew("./Assets/raspberry.jpg")
 raspberryImage := Pic.Scale(raspberryImage, 60, 60)
 
+% Ask the user if they want instructions; if they do show them for 15 seconds otherwise start the game
 loop
     cls
     Pic.Draw (backgroundImage, 0, 0, picCopy)
@@ -73,14 +73,19 @@ loop
     locate (22, 55)
     get viewInstructions
     if (Str.Lower(viewInstructions) = "y") then
-	cls
-	Pic.Draw (backgroundImage, 0, 0, picCopy)
-	Font.Draw("Instructions", 330, 260, font1, white)
-	Font.Draw("This is where the instructions will go", 250, 200, font2, white)
-	delay (15000)
-	exit
+        % Clears screen and draws text displaying instructions 
+        cls
+        Pic.Draw (backgroundImage, 0, 0, picCopy)
+        Font.Draw("Instructions", 330, 260, font1, white)
+        Font.Draw("Poison strawberry is a game played with two people.", 250, 200, font2, white)
+        Font.Draw("Starting with 12 strawberries and a raspberry, each ", 250, 180, font2, white)
+        Font.Draw("player takes either one or two strawberries. The ", 250, 160, font2, white)
+        Font.Draw("player who ends up taking the last strawberry wins", 250, 140, font2, white)
+        delay (15000)
+        exit
     elsif (Str.Lower(viewInstructions) = "n") then
-	exit
+        exit
     end if
 end loop
+% Extends file to Game.t
 include "Game.t"
